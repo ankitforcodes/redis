@@ -1,0 +1,26 @@
+Structure of Hash Map in redis:
+
+MAP_NAME: {
+            "key1" : "value1",
+            "key2" : "value2",
+            "key3" : "value3"
+          }
+         
+Example:
+ANKIT : {
+          "work": "teacher",
+          "location": "india"
+        }
+        
+        
+Commands:
+1. Set hash values
+  hset ankit work teacher
+  hset ankit location india
+
+2. Get a particular key insie a hash  
+  hget ankit location
+  hget ankit work
+  
+3. Get all key-value inside hash
+  hgetall ankit
