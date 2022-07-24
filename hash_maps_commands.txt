@@ -24,3 +24,12 @@ Commands:
   
 3. Get all key-value inside hash
   hgetall ankit
+
+4. Find if a key exists in a Hash
+  hexists ankit work
+  
+5. Delete entire Hash
+  del ankit
+  
+6. Delete a particular key inside a hash
+  hdel ankit location
