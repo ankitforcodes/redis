@@ -12,3 +12,6 @@
    
 5. Retrive values for multiple keys at once:
    mget name work location
+
+6. Delete a key
+   del name
