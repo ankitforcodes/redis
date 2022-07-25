@@ -1,0 +1,8 @@
+* Getting range of key
+	Syntax: GETRANGE key startIndex endIndex
+	Example: GETRANGE name 0 2
+	Note: End index is included
+
+* Update portion of existing string
+	Syntax: SETRANGE key startIndex valueToBeUpdated
+	Example: SETRANGE name 2 lolololo
