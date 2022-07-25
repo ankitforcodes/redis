@@ -1,0 +1,15 @@
+* Increment by 1
+	Syntax: INCR key
+	Example: INCR age 
+
+* Decrement by 1
+	Syntax: DECR key
+	Example: DECR age
+
+* Increase by certain value
+	Syntax: INCRBY age 20
+	Example: INCRBY age 20
+
+* Increase a value stored as decimal
+	Syntax: INCRBYFLOAT age 6.501
+	
