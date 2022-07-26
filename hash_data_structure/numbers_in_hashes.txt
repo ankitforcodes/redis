@@ -1,0 +1,8 @@
+* HINCRBY hash_key key_to_be_increased value_by_which_to_increase
+  Example: HINCRBY ankit age 12
+
+* HINCRBYFLOAT - If we need to increase value by decimal
+			   - Syntax remains the same
+
+* Length on the value stored in the hashmap's key
+  Example: HSTRLEN ankit company -> will return 7 since lenght of Verizon is 7
