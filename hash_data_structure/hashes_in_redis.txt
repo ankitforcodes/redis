@@ -1,0 +1,34 @@
+* Hashes in Redis
+
+HASH_KEY_NAME : {
+					"key1": "value1",
+					"key2": "value2"
+				}
+
+
+Example:
+ANKIT : {
+          "work": "teacher",
+          "location": "india"
+        }
+
+Commands:
+1. Set hash values
+  hset ankit work teacher
+  hset ankit location india
+
+2. Get a particular key insie a hash  
+  hget ankit location
+  hget ankit work
+  
+3. Get all key-value inside hash
+  hgetall ankit
+
+4. Find if a key exists in a Hash
+  hexists ankit work
+  
+5. Delete entire Hash
+  del ankit
+  
+6. Delete a particular key inside a hash
+  hdel ankit location
