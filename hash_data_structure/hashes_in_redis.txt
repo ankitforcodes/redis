@@ -32,3 +32,9 @@ Commands:
   
 6. Delete a particular key inside a hash
   hdel ankit location
+  
+7. Get all the keys inside Hash
+  hkeys hash_name
+
+8. Get all values of the key inside Hash
+  hvals hash_name
