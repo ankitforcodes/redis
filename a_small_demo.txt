@@ -1,0 +1,21 @@
+* Connecting to redis instance:
+	redis-cli -h 127.0.0.1 -p 6379
+
+* Check if Redis is working:
+	ping
+
+********************** STRINGS ****************************
+* Setting a KEY in Redis
+	SET KEY VALUE
+	SET name ankit
+
+* Getting a KEY from Redis
+	GET KEY
+	GET name
+
+* Delete an existing key from Redis
+	DEL KEY
+	DEL name
+
+********************** LISTS ****************************
+* 
