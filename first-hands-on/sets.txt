@@ -1,0 +1,23 @@
+********************** SETS ****************************
+
+* Insert item in a set
+	* SADD SET-KEY ITEM
+	* SADD companies google				1
+	* SADD companies fb					1
+	* SADD companies oracle				1
+	* SADD companies google				0
+
+* Fetch all items in the SET
+	* SMEMBERS SET-KEY
+	* SMEMBERS companies				(oracle, fb, google)
+
+* Check if an item exists in SET
+	* SISMEMBER SET-KEY ITEM
+	* SISMEMBER companies amazon		0
+	* SISMEMBER companies fb			1
+
+
+* Remove an item from SET
+	* SREM SET-KEY ITEM
+	* SREM companies amazon				0
+	* SREM companies fb					1
