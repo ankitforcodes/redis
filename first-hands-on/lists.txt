@@ -1,0 +1,28 @@
+* Connecting to redis instance:
+	redis-cli -h 127.0.0.1 -p 6379
+
+********************** LISTS ****************************
+* Insert into list from left
+	* LPUSH LIST-KEY LIST-ITEM
+	* LPUSH cars bmw				cars = [bmw]
+	* LPUSH cars mercedes			cars = [mercedes, bmw]
+
+* Insert into list from right
+	* RPUSH LIST-KEY LIST-ITEM
+	* RPUSH cars toyota				cars = [mercedes, bmw, toyota]
+
+* Fetch all items in a list
+	* LRANGE LIST-KEY 0 -1
+	* LRANGE cars 0 -1				[mercedes, bmw, toyota]
+
+* Fetch items at a particular index
+	* LINDEX LIST-KEY INDEX
+	* LINDEX cars 1					bmw
+
+* Remove an item from left
+	* LPOP LIST-KEY
+	* LPOP cars						mercedes
+
+* Remove an item from right
+	* RPOP LIST-KEY
+	* RPOP cars						toyota
