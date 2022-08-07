@@ -1,6 +1,9 @@
 Redis works best if you insall it on Linux based OS
 Following installation steps are for Centos/Debian based Linux
 
+
+SINGLE NODE INSTALLATION
+
 1. yum install epel-release
 2. yum install redis -y
 3. systemctl start redis.service
