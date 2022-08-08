@@ -1,0 +1,16 @@
+**** Problem statement:
+
+* SET the KEY
+  set last_transaction 2022-08-17:9940330141:logged_in
+
+* Fetch date of last transaction
+  GETRANGE last_transaction 0 9
+  
+* Fetch the mobile number that made the last transaction
+  GETRANGE last_transaction 11 20
+  
+* Fetch the last transaction type
+  GETRANGE last_transaction 21 -1
+
+
+
