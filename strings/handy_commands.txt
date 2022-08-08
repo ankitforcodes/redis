@@ -1,0 +1,15 @@
+* Setting multiple Keys at once
+  MSET KEY1 VALUE1 KEY2 VALUE2 KEY3 VALUE3
+  MSET company google headquerter USA employee 10k+
+  
+  
+* Fetch multiple keys at once
+  MGET KEY1 KEY2 KEY3 ...
+  MGET company employee
+  
+  
+* Set key only if doesn't exist already
+  SET NAME ANKIT
+  SETNX NAME SAHAY
+  
+  
