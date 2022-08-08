@@ -1,0 +1,13 @@
+Method 1: Expire Key after some seconds
+
+* set name Ankit
+* get name
+* ttl name
+
+* expire name 30
+* ttl name
+
+Method 2: Expire key at particular time
+* set name Ankit
+* expireat name 1659963700
+* ttl name
