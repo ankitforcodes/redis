@@ -11,3 +11,16 @@ Method 2: Expire key at particular time
 * set name Ankit
 * expireat name 1659963700
 * ttl name
+
+
+Method 3: Setting expiry time of key while inserting data
+  * setex name 10 ankit
+
+
+************************************************************************************************
+* Persist key back in Redis when EXPIRY is already set
+  set name Ankit
+  expire name 60
+  ttl name
+  persist name
+************************************************************************************************
