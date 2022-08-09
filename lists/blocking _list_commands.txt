@@ -1,0 +1,16 @@
+1. Create a list 
+   rpush names A B C
+   
+2. blpop names 100
+  -> removes A and returns immediately
+  
+3. blpop names 100
+  -> removes B and returns immediately
+  
+4. blpop names 100
+  -> removes C and returns immediately
+  
+5. blpop names 100
+  -> Blocks the command and will wait till 100 sec or any element to be inserted
+  
+6. If in the meanwhile someone inserts any element in the list the blocking command will immediately return with the newly added element
