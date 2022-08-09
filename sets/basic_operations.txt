@@ -1,0 +1,8 @@
+* Add an element in set
+  sadd users user1 user22 user3
+  
+* Remove element from set
+  srem users user3
+  
+* Remove random element from set
+  spop users
