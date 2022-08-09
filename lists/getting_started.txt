@@ -1,0 +1,26 @@
+* Insert element to the right of the list
+  rpush customer1 log_in
+  rpush customer1 browsing
+  rpush customer1 add_to_cart order_complete
+  
+* Insert element to the leftmost of the list
+  lpush customer1 home_page
+  
+  
+* Fetch all elements of the list
+  lrange customer1 0 -1
+  
+  
+* Customer's first event
+  lindex customer1 0
+
+
+* Customer's last activitiy
+  lindex customer1 -1
+  
+* Remove leftmost element from list
+  lpop customer1
+  
+* Remove rightmost element from list
+  rpop customer1
+  
