@@ -1,0 +1,17 @@
+ * Pre-requiste installations
+ 
+ yum update -y
+ yum install wget
+ yum install -y python3
+ yum groupinstall 'Development Tools'
+ yum install tcl
+ yum install nano
+
+* Redis installations
+ wget https://download.redis.io/redis-stable.tar.gz
+ tar -xzvf redis-stable.tar.gz
+ cd redis-stable
+ make distclean
+ make install
+ make test
+
