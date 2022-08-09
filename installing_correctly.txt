@@ -15,3 +15,9 @@
  make install
  make test
 
+* Edit redis.conf file
+  turn password protection off
+  protected-mode no
+  
+* Start redis
+ redis-server redis.conf
