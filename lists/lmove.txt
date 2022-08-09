@@ -1,0 +1,7 @@
+rpush cars1 X Y Z
+
+rpush cars2 P Q R
+
+
+LMOVE cars1 cars2 LEFT RIGHT
+  -> Removes 'Z'(leftmost) from cars1 and adds it to rightmost cars2
