@@ -1,0 +1,33 @@
+********************* SETTING KEYS IN HASH *******************************
+
+* hset customer:9940330141 name Ankit
+
+* hset customer:9940330141 location chennai
+
+* hset customer:9940330141 role developer
+
+* hset customer:9940330141 course redis
+
+
+******************** SETTING MULTIPLE KEYS IN HASH **************************
+* hmset google ceo sundar_pichai founder larry_page HQ USA
+
+
+******************** GETTING MUTIPLE VALUES FROM HASH ***********************
+* hmget google ceo HQ
+
+
+******************** GET ALL KEY-VALUE PAIR *********************************
+* HGETALL google
+
+
+******************** GET ALL KEYS ******************************************
+* HKEYS google
+
+********************* GET ALL VALUES ***************************************
+* HVALS google
+
+
+* DELETE A KEY: HDEL google HQ
+* FIND IF KEY EXISTS: HEXISTS google ceo
+* NUMBER OF KEY-VAL PAIRS: HLEN google
