@@ -1,0 +1,24 @@
+* UNION
+  sadd set1 a b c
+  sadd set2 d, a
+  sadd set3 e b f
+  
+  sunion set1 set2 set3
+  sunion set2 set3
+  
+* INTERSECTION
+  sinter set1 set2
+  
+* All members of set
+  smembers set1
+  
+* UNION of 2 sets
+  sunion set1 set2
+  
+* UNIONSTORE
+  sunionstore set4 set1 set2
+  
+* smove set1 set2 c
+
+* DIFFERENCE
+  sdiff set1 set2
