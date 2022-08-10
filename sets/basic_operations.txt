@@ -6,3 +6,9 @@
   
 * Remove random element from set
   spop users
+
+* Number of elements in a set
+  scard users
+  
+* Check membership 
+  sismember users user1
