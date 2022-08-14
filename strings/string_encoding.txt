@@ -1,0 +1,11 @@
+set name Ankit
+object encoding name
+  embstr
+  
+set user 1
+object encoding user
+  int
+
+set address "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+object encoding address
+  raw
