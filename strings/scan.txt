@@ -1,0 +1,12 @@
+1. Default behaviour 
+  scan 0
+  
+2. Call scan again with the next page index returned in the previous scan command
+  scan 12
+
+3. Scan and define how many items you want
+  scan 0 count 20
+  
+  
+4. Scan and match a pattern
+  scan 0 match *2
