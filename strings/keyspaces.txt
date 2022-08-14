@@ -1,0 +1,8 @@
+set name Ankit
+get name
+
+
+Switch to different keyspace
+select 1
+set name sahay
+get name
