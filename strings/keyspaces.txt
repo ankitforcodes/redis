@@ -1,8 +1,12 @@
-set name Ankit
-get name
+By default we are in keyspace 0
+  set name Ankit
+  get name
 
 
 Switch to different keyspace
-select 1
-set name sahay
-get name
+  select 1
+  set name sahay
+  get name
+
+Delete all keys in current keyspace
+  flushdb
