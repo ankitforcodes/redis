@@ -1,0 +1,21 @@
+1. Find the encoding of a key
+  set num1 1
+  object encoding num1
+  
+  set name "small text"
+  object encoding name
+  
+  
+  set name "a veryyyyyyyyyyyyyyy largeeeeeeeeeeeeeeeeeeeeeeee textttttttttttttttttttttt"
+  object encoding name
+  
+  
+2. Find the time for which the key has neither been updated nor been read
+  object idletime key-name
+  
+  set name Ankit
+  object idletime name
+  
+  Wait for few sec and then:  get name
+  See if idletime went to near zero
+  
