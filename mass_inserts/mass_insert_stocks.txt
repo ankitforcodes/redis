@@ -1,0 +1,35 @@
+1. Have the CSV file ready that you want to insert in DB
+  In our case its at: /Ankit/redis_installation/data 
+  Filename: stock_prices.csv
+  
+  A,148.900000
+  AA,36.460000
+  AAA,25.000000
+  AAAU,17.830000
+  AAC,9.745000
+  AAIC,3.880000
+  AAL,20.890000
+  AAME,4.450000
+  AAN,31.200000
+  AAOI,8.070000
+  
+  
+2. Our task is to insert this in Redis will Key as Company Code and value as Stock Prices
+
+3. The command that will do it is:
+  SET A 148.900000
+  etc
+  
+4. We need to prepare a file with redis commands 
+  awk -F ',' '{print "SET STOCKS:" $1 " " $2}' stock_prices.csv > stock_prices_redis.csv
+  
+  
+5. Insert all data sequentially
+  cat stock_prices_redis.csv | redis-cli -h 127.0.0.1 -p 6379
+  Notice the time it takes
+  
+  This will insert data one by one - not what we want
+  Flush all data - flushdb
+  
+6. Insert data using piping
+  cat stock_prices_redis.csv | redis-cli -h 127.0.0.1 -p 6379 --pipe
