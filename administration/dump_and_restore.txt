@@ -1,0 +1,14 @@
+1. set name Ankit
+2. dump name
+  - Returns a serialized value
+  
+3. Restore the value
+  restore key ttl(0 if no ttl)  serialized-value
+  
+  restore name 0 "\x00\x05Ankit\n\x00]\xeef\xca\xef\xc7\xee\x8f"
+  
+  This will throw error - because name key already exists
+  Either:
+    1. Delete the name key and re-run the command - Use this when key is deleted
+    2. Use replace flag to replace existing key: - Use this when key is corrupted/wrongly updated
+      restore name 0 "\x00\x05Ankit\n\x00]\xeef\xca\xef\xc7\xee\x8f" replace
