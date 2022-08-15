@@ -1,0 +1,13 @@
+Connect to redis using redis-cli
+Run:
+info
+
+
+Important things to note:
+  Server:
+    redis_version
+    redis_mode: standalone/clustr/sentinel
+    uptime_in_sec: Seconds from which redis is running
+
+  Memory:
+    
