@@ -1,0 +1,25 @@
+Shell 1
+1. Subscribe to the channel
+  subscribe ch1
+
+Shell 2
+2. Publish message to the channel
+  publish ch1 msg1
+  publish ch1 msg2
+  publish ch1 msg3
+  publish ch1 msg4
+  
+3. Verify that published message was recevied by the subscriber
+
+
+Shell 3:
+4. Start another subscriber to the channel
+5. Publish messages
+  publish ch1 msg6
+  publish ch1 msg7
+  publish ch1 msg8
+  
+6. Verify that published messages were recevied by both subscriber
+
+
+7. Once you close both subscriber, publishing message will send response 0
