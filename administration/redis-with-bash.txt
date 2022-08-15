@@ -1,3 +1,8 @@
+0. Any redis command can be executed without entering redis interactive mode
+  redis-cli -h 127.0.0.1 -p 6379 set name rediscourse
+  redis-cli -h 127.0.0.1 -p 6379 get name
+
+
 1. Bash script is created at:
   /Ankit/redis_installation/data
   
