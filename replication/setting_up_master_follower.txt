@@ -72,3 +72,11 @@ Notice that master_replicaid for both is same
 Test if replication is working or not:
 1. Set a key on master and see if it reflects in replica
 2. Try to set a key in replica node - you should get an error
+
+
+
+*********************************
+Remove replica
+In the replica node connect to redis-cli
+Run
+  replicaof no one
