@@ -1,0 +1,66 @@
+Server 1:
+1. Go to redis binaries location:
+  /Ankit/redis_installation/redis-stable
+  
+2. Edit redis.conf file to reflect actual hostname instead of localhost/127.0.0.1
+
+3. Start redis
+  redis-server redis.conf
+  
+  
+Server 2:
+1. Go to redis binaries location:
+  /Ankit/redis_installation/redis-stable
+  
+2. Edit redis.conf file to reflect actual hostname instead of localhost/127.0.0.1
+
+3. Start redis
+  redis-server redis.conf
+  
+4. In another putty - connect to 2nd server's redis using redis-cli
+  Run command:
+    replicaof hostname1 6379
+    
+    And notice the logs of this replica server in the previous putty
+    
+    
+Notice the logs of both Master and Relica redis-server
+Master:
+  Replica XXXX:6379 asks for synchronization
+  Starting BGSAVE for SYNC with target: replicas sockets
+  Background RDB transfer started by pid 13568
+  Background RDB transfer terminated with success
+  Synchronization with replicaXXXX:6379 succeeded
+  
+Replica:
+   MASTER <-> REPLICA sync started
+   MASTER <-> REPLICA sync: receiving streamed RDB from master with EOF to disk
+   Discarding previously cached master state
+   MASTER <-> REPLICA sync: Flushing old data
+   MASTER <-> REPLICA sync: Finished with success
+   
+   
+   
+Check the Replication Info of both servers via cli
+Master
+  redis-cli -h XXXX -p 6379
+  info replication
+  
+  
+  Observer follwing:
+    role:master
+    connected_slaves:1
+    master_replid:347b3523492fdea38de3bf713ebdab0a0f05bad5
+    
+    
+ Slave:
+  redis-cli -h XXXX -p 6379
+  info replication
+  
+  
+  Observer follwing:
+    role:salve
+    master_host:XXXX
+    master_replid:347b3523492fdea38de3bf713ebdab0a0f05bad5
+
+Notice that master_replicaid for both is same
