@@ -1,0 +1,34 @@
+1. Have the CSV file ready that you want to insert in DB
+  In our case its at: /Ankit/redis_installation/data 
+  Filename: country_codes.csv
+  
+  File structure:
+  AF,Afghanistan
+  AL,Albania
+  DZ,Algeria
+  AD,Andorra
+  AO,Angola
+  AI,Anguilla
+  AQ,Antarctica
+  AR,Argentina
+  AM,Armenia
+  AW,Aruba
+  
+  
+2. Our task is to insert this in Redis will Key as Country Code and value as Country name
+
+3. The command that will do it is:
+  SET AF Afghanistan
+  etc
+  
+4. We need to prepare a file with redis commands 
+  awk -F ',' '{print "SET " $1 " " $2}' country_codes.csv > country_codes_redis.csv
+  
+  
+5. Insert all data sequentially
+  cat country_codes_redis.csv | redis-cli -h 127.0.0.1 -p 6379
+  
+  This will insert data one by one - not what we want
+  
+6. Insert data using piping
+  cat country_codes_redis.csv | redis-cli -h 127.0.0.1 -p 6379 --pipe
