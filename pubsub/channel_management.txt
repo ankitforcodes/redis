@@ -1,0 +1,19 @@
+1. Find all active channels
+  pubsub channels *
+  
+  Note: only shows active channels (channels with atleast one subscription, also psubscribe is not counted)
+  
+2. Start a subscription
+  subscribe sales:food
+  
+  Check active channels now:
+  pubsub channels *
+  
+  
+  You should see "sales:food" in the list
+  
+3. Start another subscription on sales:food
+  subscribe sales:food
+  
+4. To find number of subscriber of channel sales:food
+  pubsub numsub sales:food
