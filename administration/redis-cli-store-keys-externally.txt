@@ -1,0 +1,8 @@
+1. Go to the directory where you want to store the file
+  cd /Ankit/redis_installation/data
+  
+2. If you want to store all keys in the file:
+  redis-cli -h 127.0.0.1 -p 6379 --scan  * > mykeys.txt
+  
+3. If you want to store keys with a specific pattern:
+  redis-cli -h 127.0.0.1 -p 6379 --scan --pattern A*  > APATTERN.txt
