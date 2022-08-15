@@ -1,0 +1,6 @@
+1. Bash script is created at:
+  /Ankit/redis_installation/data
+  
+2. Run the bash script to echo all key and values
+  make it executable: chmod +x redis-with-bash.sh
+  ./redis-with-bash.sh
