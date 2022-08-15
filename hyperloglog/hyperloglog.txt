@@ -1,0 +1,63 @@
+1. Add elements to HLL
+  pfadd hll1 1 2 3 4 5
+  
+  
+2. If we try to add any of the same elements again, we get response of 0
+  pfadd hll1 1
+  
+3. Count cardinality of hyperloglog (the less the items in HyperLogLog, the more the accuracy)
+  pfcount hll1
+  
+4. Merge multiple HLL
+  pfmerge destination-hll hll1 hll2
+  
+  Notice that items common in hll1 and hll2 are counted only once in destination-hll
+***************************************************************************************************************  
+USE CASE: UNIQUE VISTIORS OF A WEBSITE
+  1. HLL suits this use case as
+    a. Our count need to be 100% accurate, anything above 99% is good
+    b. Storing all unique users in a set or list is very memory intensive task
+    
+Implementation
+1. Create HLL for different sections of website
+  pfadd mywebiste:home-page user1
+  pfadd mywebiste:home-page user2
+  pfadd mywebiste:home-page user3
+  pfadd mywebiste:home-page user4
+  
+  
+  pfadd mywebiste:browse-product user2
+  pfadd mywebiste:browse-product user3
+  pfadd mywebiste:browse-product user4
+  
+  
+  pfadd mywebiste:add-to-cart  user3
+  pfadd mywebiste:add-to-cart  user4
+  
+  
+  pfadd mywebiste:checkout  user4
+  
+2. Assignment: How to find unique visitors of the website overall?
+  Answer is 10 lines below
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  pfmerge mywebsite:total  mywebiste:home-page pfadd mywebiste:browse-product pfadd mywebiste:add-to-cart pfadd mywebiste:checkout
+  pfcount mywebsite:total
+  
+  
+  
