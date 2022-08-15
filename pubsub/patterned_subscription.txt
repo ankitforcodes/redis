@@ -1,0 +1,24 @@
+* Suppose we have a website selling many products (FLipkart, Amazon) and we want to create 
+  a stream of sales data tagged by product type (electronics, furniture, clothes, etc)
+  
+1. We publish messages to the channels like this:
+  publish sales:electronics hp-laptop
+  publish sales:electronics iphone
+  publish sales:furniture bed
+  publish sales:furniture bed
+  publish sales:furniture bed
+  publish sales:electronics iphone
+  publish sales:clothes shirt
+  
+2. Using psubscribe subscribe to all channels 
+  psubscribe sales:*
+  
+3. Publish message to any existing channel
+  publish sales:electronics speakers
+  
+4. Verify if subscription got the message
+
+5. Send message to a new subscription which did not exist
+  publish sales:food oil
+  
+6. Verify that new channel was automatically subscribed and we received the msg
