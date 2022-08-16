@@ -1,25 +1,6 @@
-************** ONE TIME ACTIVIT - ALREADY DONE ***********************************
-1. Download redis tar
-2. Edit following in the conf file:
-  Add the hostname
-  protected-mode no
-  
-  
-  Go to CLuster section (almost in the end)
-  Uncomment 
-    cluster-enabled yes
-    cluster-config-file nodes-6379.conf
-    cluster-node-timeout 5000
-    appendonly yes
-    
-    
-    Add line:
-    appendonly yes
-    
-3. 
-  make distclean
-  make install
-  make test
+************** ONE TIME ACTIVIT ***********************************
+Start a Server
+Make redis ready: https://github.com/ankitforcodes/redis/blob/main/installing_correctly.txt
   
 ***********************************************************************************
 Once the above is done for all 3 servers
@@ -33,6 +14,52 @@ In each redis.conf file:
   cluster-node-timeout 5000
   appendonly yes
   protected-mode no
+  
+  
+  port 7001
+  cluster-enabled yes
+  cluster-config-file nodes.conf
+  cluster-node-timeout 5000
+  appendonly yes
+  protected-mode no
+  
+  port 7002
+  cluster-enabled yes
+  cluster-config-file nodes.conf
+  cluster-node-timeout 5000
+  appendonly yes
+  protected-mode no
+  
+  port 7003
+  cluster-enabled yes
+  cluster-config-file nodes.conf
+  cluster-node-timeout 5000
+  appendonly yes
+  protected-mode no
+  
+  port 7004
+  cluster-enabled yes
+  cluster-config-file nodes.conf
+  cluster-node-timeout 5000
+  appendonly yes
+  protected-mode no
+  
+  port 7005
+  cluster-enabled yes
+  cluster-config-file nodes.conf
+  cluster-node-timeout 5000
+  appendonly yes
+  protected-mode no
+  
+* Start all redis instances
+  redis-server 7000.conf
+  redis-server 7001.conf
+  redis-server 7002.conf
+  redis-server 7003.conf
+  redis-server 7004.conf
+  redis-server 7005.conf
+  
+  Note the their mode is: CLuster Mode
   
   ALL NODES ARE RUNNING IN CLUSTER MODE NOW - BUT NOT TALKING TO EACH OTHER
 ***********************************************************************************
