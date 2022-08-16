@@ -88,3 +88,7 @@ redis-cli -c -h 157.245.112.53 -p 7000
 
 set name Ankit
 Redirected to slot [5798] located at 157.245.112.53:7001
+
+
+Notice how getting and setting from one redis-instance is able to get the hashslot and find the key from any servers
+Even slaves are able to accept write commands and redirect to masters (which was not allowed in replication without cluster)
