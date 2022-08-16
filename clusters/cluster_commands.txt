@@ -1,2 +1,25 @@
 1. Check cluster status and metrics
   redis-cli  --cluster check XXXXX:7004
+
+
+
+connect to anyone redis instance
+  redis-cli -c -h 157.245.112.53 -p 7003
+  
+*  Find slots info:
+    cluster slots
+  
+*  Find cluster info:
+    cluster nodes
+    
+*  CLuster Info
+    cluster info
+    
+* Find node if
+  cluster myid
+  
+* Find which slot a key will go to
+  cluster keyslot mykey
+  
+* Get keys stored in a slot
+  cluster getkeysinslot <slot-number> <num-of-keys>
