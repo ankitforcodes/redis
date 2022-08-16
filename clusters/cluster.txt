@@ -1,0 +1,63 @@
+************** ONE TIME ACTIVIT - ALREADY DONE ***********************************
+1. Download redis tar
+2. Edit following in the conf file:
+  Add the hostname
+  protected-mode no
+  
+  
+  Go to CLuster section (almost in the end)
+  Uncomment 
+    cluster-enabled yes
+    cluster-config-file nodes-6379.conf
+    cluster-node-timeout 5000
+    appendonly yes
+    
+    
+    Add line:
+    appendonly yes
+    
+3. 
+  make distclean
+  make install
+  make test
+  
+***********************************************************************************
+Once the above is done for all 3 servers
+* make 6 redis.conf files with different ports
+* Ideally these would be running in 6 different 
+
+In each redis.conf file:
+  port 7000
+  cluster-enabled yes
+  cluster-config-file nodes.conf
+  cluster-node-timeout 5000
+  appendonly yes
+  protected-mode no
+  
+  ALL NODES ARE RUNNING IN CLUSTER MODE NOW - BUT NOT TALKING TO EACH OTHER
+***********************************************************************************
+
+Start another shell on any one node and run:
+redis-cli -h 206.189.110.103 -p 6379 --cluster create N1:6379 N2:6380 N3:6379 N4:6380 N5:6379 N:6380 --cluster-replicas 1
+
+
+Notice the following sentences:
+Master[0] -> Slots 0 - 5460
+Master[1] -> Slots 5461 - 10922
+Master[2] -> Slots 10923 - 16383
+
+
+Adding replica X:6379 to X:6379
+Adding replica X:6380 to X:6379
+Adding replica X:6380 to X:6380
+
+If you see OK message, you cluster setup is ready
+***************************************************************************************
+
+Connect to any redis-instance via redis-cli and to check its role:
+redis-cli -c -h 157.245.112.53 -p 7000
+
+-c flag is important - it tells the cli we want to connect to a server which is part of a cluster
+
+set name Ankit
+Redirected to slot [5798] located at 157.245.112.53:7001
