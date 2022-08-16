@@ -1,2 +1,2 @@
 1. Check cluster status and metrics
-  redis-cli  --cluster check 157.245.112.53:7004
+  redis-cli  --cluster check XXXXX:7004
