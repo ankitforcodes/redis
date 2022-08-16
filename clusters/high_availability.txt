@@ -1,0 +1,37 @@
+1. Connect to a master node:
+  redis-cli -c -h XXXX -p 7000
+  
+2. Check its role:
+  info replication
+      # Replication
+      role:master
+      connected_slaves:1
+      slave0:ip=XXXX,port=7005,state=online,offset=4844,lag=0
+      master_failover_state:no-failover
+      master_replid:4f991bb4cf4ba0978ecf9048fe080431c57a4730
+      master_replid2:0000000000000000000000000000000000000000
+      master_repl_offset:4844
+      second_repl_offset:-1
+      repl_backlog_active:1
+      repl_backlog_size:1048576
+      repl_backlog_first_byte_offset:1
+      repl_backlog_histlen:4844
+      
+ 3. In this case redis running on port 7005 is its slave
+ 
+ 4. Bring this server down using shutdown command:
+   SHUTDOWN
+   
+ 5. Check that only 5 nodes are running now (instead of 6)
+  ps ax | grep redis
+  
+ 6. Connect to redis running on port 7005 which was slave
+  redis-cli -c -h XXXX -p 7005
+  
+7. Check its role and validate that it became master
+  info replication
+  
+8. Bring up the redis instance that was shutdown earlier
+  redis-server 7000/7000.conf
+  
+9. It joins the cluster  back but as a slave
