@@ -1,0 +1,40 @@
+1. Once redis is installed, go to the location where redis.conf is located:
+  /Ankit/redis_installation/redis-stable/
+  Make the regular changes like 
+  IP
+  protected-mode no
+  
+2. In the redis.conf file find the line that starts with "save"
+  Go to section #### SNAPSHOTING ######
+    dir /Ankit/redis_installation/
+    save 60 5          => This means if in the last 60 seconds, 5 writes/updates have happened, write the snapshot to disk
+  
+3. Save the redis.conf file and start redis server
+  redis-server redis.conf
+  
+4. Start 2 more terminals
+  a. to connect to cli
+  b. to observer files
+  
+  Keep all 3 terminals side by side
+  
+5. start setting keys and see the logs
+
+  CASE1: save command triggers from conf file
+    setting 4 keys will not trigger the snapshot
+    the moment we set 5th key, snapshot process will start
+    
+    Note: that its not just every 60 sec, its every 60 sec only if atleast 5 writes/updates have happended
+    
+    Check for the timestamp of rdb file created at /Ankit/redis_installation/
+    
+    
+  CASE 2: From redis-cli, run
+    BGSAVE    => observe that snapshot was triggered
+    
+  CASE 3: from redis-cli, run
+    SAVE -> this blocks all clients and save data to disk
+  
+  
+  CASE 4: from redis-cli, run
+    SHUTDOWN command
