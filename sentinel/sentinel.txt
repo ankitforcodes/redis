@@ -1,0 +1,77 @@
+1. Log in to the host: for the sake of simplicity - keep the hostname as 127.0.0.1
+
+2. We need to deploy: (on the same host in demo, but ideally on different machines):
+    - 1 master port 6379, 1 replica port 6380
+    - 3 sentinels 7001, 7002, 7003
+    
+    MASTER:
+     - Regular configs
+     
+    REPLICA:
+      - copy config file
+          cp redis.conf redis-replica.conf
+    
+    Edit REPLICA conf file to change:
+      - port to 6380
+      - replicaof 127.0.0.1 6379
+    
+    
+3. Sentinel config file:
+  Create 3 sentinel.conf files:
+  nano sentinel1.conf
+  SENTINEL 1:
+  
+    port 5000
+    sentinel monitor mymaster 127.0.0.1 6379 2
+    sentinel down-after-milliseconds mymaster 5000
+    sentinel failover-timeout mymaster 60000
+    sentinel parallel-syncs mymaster 1
+    
+  nano sentinel2.conf
+  SENTINEL 2:
+  
+    port 5001
+    sentinel monitor mymaster 127.0.0.1 6379 2
+    sentinel down-after-milliseconds mymaster 5000
+    sentinel failover-timeout mymaster 60000
+    sentinel parallel-syncs mymaster 1
+    
+  
+  nano sentinel3.conf
+  SENTINEL 3:
+    port 5002
+    sentinel monitor mymaster 127.0.0.1 6379 2
+    sentinel down-after-milliseconds mymaster 5000
+    sentinel failover-timeout mymaster 60000
+    sentinel parallel-syncs mymaster 1
+    
+    
+    
+################################################################################
+1. Start master node:
+  redis-server redis.conf
+  
+  
+2. Start replica
+  redis-server redis-replica.conf
+  
+3. Note the logs to be showing replication proces
+
+4. Start sentinels
+    redis-sentinel sentinel1.conf
+    redis-sentinel sentinel2.conf
+    redis-sentinel sentinel3.conf
+    
+5. connect to master via 6379 and validate its a master: info replication
+6. connect to slave via 6380 and validate its a slave: info replication
+
+
+7. Connect to master and bring it down using shutdown command:
+  shutdown
+  
+8. Within few seconds the replica putty will have the following logs:
+   MASTER MODE enabled (user request from 'id=4 addr=127.0.0.1:44050 laddr=127.0.0.1:6380 fd=9 name=sentinel-b9f9fa4d-cmd age=335 idle=0 flags=x db=0 sub=0 psub=0 ssub=0 multi=4 qbuf=188 qbuf-free=20286 argv-mem=4 multi-mem=169 rbs=2048 rbp=1024 obl=45 oll=0 omem=0 tot-mem=23589 events=r cmd=exec user=default redir=-1 resp=2')
+25053:M 17 Aug 2022 18:39:34.638 # CONFIG REWRITE executed with success
+
+
+9. connect to 66380 and validate that it became a master node: info replication
