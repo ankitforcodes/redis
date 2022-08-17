@@ -21,3 +21,10 @@
      redis-check-aof --fix appendonly.aof.1.incr.aof
      
      Note: simple way to fix it is since it append only, truncate the file till its format is OK
+
+
+6. Compacting AOF file:
+  from redis-cli run:
+    bgrewriteaof
+    
+  Observe the logs and how aof file name got incremented from 1 to 2
