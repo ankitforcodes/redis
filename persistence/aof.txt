@@ -14,3 +14,10 @@
     /Ankit/redis_installation/aof_files
       
   
+4. Check if your AOF file is valid and OK
+     redis-check-aof  appendonly.aof.1.incr.aof
+     
+5. If its not OK, fix it using:
+     redis-check-aof --fix appendonly.aof.1.incr.aof
+     
+     Note: simple way to fix it is since it append only, truncate the file till its format is OK
