@@ -1,0 +1,16 @@
+1. Open redis.conf file and go to section: (31 page downs)
+  ############################## APPEND ONLY MODE ###############################
+  
+2. Change appendonly no to yes
+  appendonly yes
+  
+  appenddirname "aof_files"               => this will create directory "aof_files" on top of config: dir /Ankit/redis_installation/
+  
+  fsync is already set to everysec:
+  appendfsync everysec
+  
+  
+3. Run set commands and check the file getting created in:
+    /Ankit/redis_installation/aof_files
+      
+  
