@@ -1,0 +1,20 @@
+1. Create a list:
+  RPUSH num one one two three four one one
+
+2. Remove elements from the end:
+  LREM num -2 one
+  
+  This means that from the end of the list remove "one" twice
+  
+3. Remove elements from the left:
+  LREM num 2 one  
+  
+  This means that from the left of the list remove "one" twice
+  
+4. Remomve the leftmost item
+  LPOP num
+  
+5. Remove the rightmost item
+  RPOP num
+  
+  
