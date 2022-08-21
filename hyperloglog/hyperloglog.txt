@@ -15,7 +15,7 @@
 ***************************************************************************************************************  
 USE CASE: UNIQUE VISTIORS OF A WEBSITE
   1. HLL suits this use case as
-    a. Our count need to be 100% accurate, anything above 99% is good
+    a. Our count need not to be 100% accurate, anything above 99% is good
     b. Storing all unique users in a set or list is very memory intensive task
     
 Implementation
