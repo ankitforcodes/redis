@@ -1,6 +1,6 @@
 ********************** ZSETS ****************************
 * Add a member (item) in a ZSET
-	* ZADD ZSET-KEY RANK KEY
+	* ZADD ZSET-KEY SCORE KEY
 	* ZADD marks 65 student1						1
 	* ZADD marks 65 student1						0
 	* ZADD marks 71 student2						1
