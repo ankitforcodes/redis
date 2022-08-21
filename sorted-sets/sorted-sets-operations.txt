@@ -1,0 +1,29 @@
+1. Add items in sorted sets
+  ZADD sorted-set-name SCORE ITEM
+  
+  ZADD IPL 10 MI
+  ZADD IPL 12 GT
+  ZADD IPL 8 KKR
+  ZADD IPL 14 LSG
+  ZADD IPL 6 PJBSK
+  ZADD IPL 16 CSK
+  
+  OR, you can insert all in 1 go as well
+  ZADD IPL  10 MI 12 GT 8 KKR 14 LSG 6 PJBSK 16 CSK
+  
+2. ZRANGE IPL 0 -1
+  Notice how all the teams are sorted in increasing order of their scores
+  
+3. Find the bottom 4 teams:
+   ZRANGE IPL 0 3
+
+3. Find the finalist and semi-finalist (i.e rank 1 and 2)
+  ZRANGE IPL 0 1 REV
+  
+  REV keyword because the items are arranged in asceding order, so we need the bottom 2
+  
+4. Find the score of all the teams:
+  ZRANGE IPL 0 -1 WITHSCORES
+  
+5. Whoever has a score more than 14 and less than 20:
+  ZRANGE IPL 14 20 BYSCORE
