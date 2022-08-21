@@ -1,0 +1,17 @@
+RPUSH cars bmw
+lrange cars 0 -1
+
+LRANGE cars 0 -1
+lrange cars 0 -1
+
+RPUSH cars toyota
+lrange cars 0 -1
+
+LPUSH cars honda
+lrange cars 0 -1
+
+LINSERT cars AFTER bmw tata
+lrange cars 0 -1
+
+LINSERT cars BEFORE toyota maruti
+lrange cars 0 -1
