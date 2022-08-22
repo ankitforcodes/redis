@@ -19,6 +19,7 @@
      
 5. If its not OK, fix it using:
      redis-check-aof --fix appendonly.aof.1.incr.aof
+     # redis-check-aof --fix appendonly.aof.3.incr.aof
      
      Note: simple way to fix it is since it append only, truncate the file till its format is OK
 
