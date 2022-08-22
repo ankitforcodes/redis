@@ -1,7 +1,9 @@
 1. Log in to the host: for the sake of simplicity - keep the hostname as 127.0.0.1
+MASTER 6380
+REPLICA 6379
 
 2. We need to deploy: (on the same host in demo, but ideally on different machines):
-    - 1 master port 6379, 1 replica port 6380
+    - 1 master port 6380, 1 replica port 6379
     - 3 sentinels 7001, 7002, 7003
     
     MASTER:
