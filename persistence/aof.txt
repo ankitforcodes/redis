@@ -12,7 +12,7 @@
   
 3. Run set commands and check the file getting created in:
     /Ankit/redis_installation/aof_files
-      
+    Every set command should change the size and timestamp of AOF files
   
 4. Check if your AOF file is valid and OK
      redis-check-aof  appendonly.aof.1.incr.aof
