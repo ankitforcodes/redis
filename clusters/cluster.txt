@@ -54,12 +54,26 @@ In each redis.conf file:
 * Start all redis instances BY GOING INSIDE INDIVIDUAL DIRECTORIES : Dont run from outside the directory
   becuase nodes.conf file gets generated in the current path
   If we use common path - node.conf will clash
-  
+  cd 7000
   redis-server 7000.conf
+  
+  cd 7001
   redis-server 7001.conf
+  
+  cd 7002
   redis-server 7002.conf
+  
+  
+  cd 7003
   redis-server 7003.conf
+  
+  
+  
+  cd 7004
   redis-server 7004.conf
+  
+  
+  cd 7005
   redis-server 7005.conf
   
   Note the their mode is: CLuster Mode
