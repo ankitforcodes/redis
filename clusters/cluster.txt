@@ -51,7 +51,10 @@ In each redis.conf file:
   appendonly yes
   protected-mode no
   
-* Start all redis instances
+* Start all redis instances BY GOING INSIDE INDIVIDUAL DIRECTORIES : Dont run from outside the directory
+  becuase nodes.conf file gets generated in the current path
+  If we use common path - node.conf will clash
+  
   redis-server 7000.conf
   redis-server 7001.conf
   redis-server 7002.conf
