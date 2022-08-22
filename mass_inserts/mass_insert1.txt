@@ -32,3 +32,8 @@
   
 6. Insert data using piping
   cat country_codes_redis.csv | redis-cli -h 127.0.0.1 -p 6379 --pipe
+  
+  
+7. As an additional exercise you can introduce some wrong commands in the file and see the response:
+  - After the end of bulk transaction redis will tell you how many failed and how many passed
+  - It will also give you the error messages for each command that failed, and you can use grep to find it
