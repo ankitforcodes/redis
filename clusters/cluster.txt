@@ -82,7 +82,12 @@ In each redis.conf file:
 ***********************************************************************************
 
 Start another shell on any one node and run:
-redis-cli -h 206.189.110.103 -p 6379 --cluster create N1:6379 N2:6380 N3:6379 N4:6380 N5:6379 N:6380 --cluster-replicas 1
+CONNECT TO ANY 1 NODE:
+NOTE that port is now 7000 70001 etc - dont try to connect to 6379
+
+
+redis-cli -h 127.0.0.1 -p 7000 --cluster create 127.0.0.1:7000 127.0.0.1:7001 127.0.0.1:7002 127.0.0.1:7003 127.0.0.1:7004 127.0.0.1:7005 --cluster-replicas 1
+
 
 
 Notice the following sentences:
@@ -99,9 +104,58 @@ If you see OK message, you cluster setup is ready
 ***************************************************************************************
 
 Connect to any redis-instance via redis-cli and to check its role:
-redis-cli -c -h 157.245.112.53 -p 7000
+redis-cli -c -h 127.0.0.1 -p 7000
 
 -c flag is important - it tells the cli we want to connect to a server which is part of a cluster
+
+* Connect to different PORTs and check their ROLE
+  ROLE REPLICATION
+  
+* Connect to one of the SLAVE nodes and try to set a key
+  - EVEN slave nodes are able to redirect SET commands to MASTER
+  
+  
+* set multiple keys to send to different HASHSLOTS
+  set name1 A
+  set name2 B
+  set name3 C
+  
+  Once it goes to different hashslots, try to do a multikey operation
+  MGET name1 name2 name3
+    - if its in different HASHSLOTs - it will throw an error
+    
+    
+* If you want to force keys to go to same hashslots/server - use hashtags
+  set {project1}:cust1:name Ankit
+  set {project1}:cust1:location chennai
+  set {project1}:cust1:role developer
+  
+  
+  Only the string inside {} will used to hash, and thus goes to same slot always
+  
+* Confirm which is master and which is slave (WE ARE GOING TO BRING DOWN A MASTER):
+    Connect to any of the server using redis-cli
+    redis-cli -h 127.0.0.1 -p 7000
+    
+    cluster nodes:
+      cb81a1753b6188017d78bcccc10ec23444bf1be3 127.0.0.1:7000@17000 master - 0 1661192796000 1 connected 0-5460
+      9e833d7a31fbfd2b6b5d43273707d14a055c735d 127.0.0.1:7002@17002 master - 0 1661192795547 3 connected 10923-16383
+      ee7de7fd07a4ab22638a1fd1f0becda0c6d5e4b3 127.0.0.1:7004@17004 slave 9e833d7a31fbfd2b6b5d43273707d14a055c735d 0 1661192795547 3 connected
+      1d977a11fe5902966d42c4acf1e6dd4cf4eef921 127.0.0.1:7003@17003 slave e4055c20f883c817f0b32f3697d3389acad8248e 0 1661192796552 2 connected
+      c2175082b59325fa10f78ec612e3ec8661fcc665 127.0.0.1:7005@17005 slave cb81a1753b6188017d78bcccc10ec23444bf1be3 0 1661192796000 1 connected
+      e4055c20f883c817f0b32f3697d3389acad8248e 127.0.0.1:7001@17001 myself,master - 0 1661192796000 2 connected 5461-10922
+      
+      
+   7001 is a master, connect to it and run SHUTDOWN
+    
+    
+    NOte the logs, how cluster becomes NOT OK for a while then becomes OK
+    
+   Bring 7001 back up - notice its role when it joins backs, it joins back as SLAVE
+
+
+
+
 
 set name Ankit
 Redirected to slot [5798] located at 157.245.112.53:7001
