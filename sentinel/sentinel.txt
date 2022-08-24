@@ -90,3 +90,9 @@
 
 
 9. connect to 66380 and validate that it became a master node: info replication
+
+
+PYTHON
+1. Start python client
+2. Start bringing sentinels down 1 by 1
+3. Even when all sentinels are down - python script is still running (as long as client has not been stopped)
