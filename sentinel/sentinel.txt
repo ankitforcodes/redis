@@ -1,3 +1,6 @@
+
+
+
 1. Log in to the host: for the sake of simplicity - keep the hostname as 127.0.0.1
 
 
@@ -7,11 +10,22 @@
     
     MASTER:
      - Regular configs
+        redis-server redis.conf
      
     REPLICA:
       - copy config file
-          cp redis.conf redis-replica.conf
-    
+                                                                    One time only: cp redis.conf redis-replica.conf
+          
+          
+          redis-server redis-replica.conf
+          connect to 6380: redis-cli -h 127.0.0.1 -p 6380
+          Make it replica of 6379: replicaof 127.0.0.1 6379
+            
+          
+          
+          
+          
+          
     Edit REPLICA conf file to change:
       - port to 6380
       - replicaof 127.0.0.1 6379
