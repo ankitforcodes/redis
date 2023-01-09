@@ -1,6 +1,8 @@
 1. Default behaviour 
   scan 0
   
+  It returns the list of all the keys in the current page and the number of the next page using which we have to make scan call again.
+  
 2. Call scan again with the next page index returned in the previous scan command
   scan 12
 
