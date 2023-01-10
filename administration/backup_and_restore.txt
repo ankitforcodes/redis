@@ -1,0 +1,30 @@
+
+1. Start redis server:
+  redis-server redis.conf
+
+2. Populate some 10K keys:
+  debug populate 10000
+
+3. Check if 10k keys are populated:
+  keys *
+  
+4. Run the SAVE command to trigger an dump to rdb file
+
+5. Note the RDB file created with decent file size.
+
+6. Copy that rdb file to another location
+
+7. Stop Redis
+  7.a: Appendonly config should be disabled (by default it is)
+  7.b: If not: CONFIG SET appendonly no
+  7.c: CONFIG REWRITE
+  
+  
+8. Delete the original RDB file and start redis
+9. Note that DB is empty. That is, we can crashed redis or lost data.
+
+10. Stop Redis again.
+11. Bring back the backed up RDF file in the Redis "dir" location
+12. Start Redis
+13. Check if data is back.
+
