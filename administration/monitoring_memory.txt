@@ -1,0 +1,18 @@
+1. Overall memory related metrics:
+  INFO MEMORY
+  
+2. Memory usage of particular keys:
+  MEMORY USAGE <KEY-NAME>
+  
+  Note that this gives only the "value's" information, not the key information:
+  For example:
+  SET NAME Ankit
+  and 
+  SET NNNNNNNAAAAAAAAAAAAAAMMMMMMMMMMEEEEEEEEEE Ankit
+  will give the same value when we run: MEMORY USAGE NAME or MEMORY USAGE NNNNNNNAAAAAAAAAAAAAAMMMMMMMMMMEEEEEEEEEE
+  
+3. Run diagnostics: Will point out to any gaping holes and also suggest solutions if it can.
+  MEMORY DOCTOR
+  
+4. Finding biggest keys in terms of string with largest values, lists with largest no. of items, hashes with largest number of key-value pairs:
+  redis-cli -h HOST -p 6379 --bigkeys
