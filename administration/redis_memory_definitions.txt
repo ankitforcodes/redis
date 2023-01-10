@@ -1,0 +1,22 @@
+used_memory: Total number of bytes allocated by Redis using its allocator
+used_memory_human: Human readable representation of the previous value
+used_memory_rss: Number of bytes that Redis allocated, as seen by the operating system
+used_memory_rss_human: Human readable representation of previous value
+used_memory_peak: Peak memory consumed by Redis (in bytes)
+used_memory_peak_human: Human readable representation of previous value
+used_memory_peak_perc: (used_memory/used_memory_peak)*100%
+used_memory_overhead: All the memory overhead used by Redis internally to maintain the dataset, including all the client output buffer, query buffer, AOF rewrite buffer, and replication backlog
+used_memory_startup: Memory assumption when the Redis Server started
+used_memory_dataset: used_memory - used_memory_overhead
+used_memory_dataset_perc: 100% * (used_memory_dataset/( used_memory - used_memory_startup)
+total_system_memory: Total system memory capacity
+total_system_memory_human: Human readable representation of previous value
+used_memory_lua: Lua script stored memory assumption
+used_memory_lua_human: Human readable representation of previous value
+maxmemory: Max memory settings for the Redis instance
+maxmemory_human: Human readable representation of previous value
+maxmemory_policy: Eviction policy when max memory is reached
+mem_fragmentation_ratio: used_memory_rss/used_memory
+mem_allocator: Memory allocator
+active_defrag_running: 0 for none active defrag task is running. 1 for active defrag task is running
+lazyfree_pending_objects: 0 for none lazy free pending objects exist
