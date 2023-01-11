@@ -8,14 +8,21 @@ Server 1:
   redis-server redis.conf
   
   
-Server 2:
+Server 2: OR CREATE a 2nd redis conf file
 1. Go to redis binaries location:
   /Ankit/redis_installation/redis-stable
+      cp redis.conf redis-replica1.conf
+      create a data directory
+        mkdir replica1 (in location: /Ankit/redis_installation/redis-stable/)
+  Edit the new conf file on following lines:
+      port 6380 
+      pidfile "/var/run/redis_6380.pid"
+      dir "/Ankit/redis_installation/redis-stable/replica1/"
   
-2. Edit redis.conf file to reflect actual hostname instead of localhost/127.0.0.1
+  
 
-3. Start redis
-  redis-server redis.conf
+2. Start redis
+   redis-server redis-replica1.conf
   
 4. In another putty - connect to 2nd server's redis using redis-cli
   Run command:
