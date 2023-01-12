@@ -1,0 +1,31 @@
+1. redis-cli --cluster reshard 127.0.0.1:7000
+2. How many slots do you want to move (from 1 to 16384)? 
+   Enter no. of slot you want to reshard: 500
+   
+3. What is the receiving node ID? f445fbb347c13d027dcce2910524eda27c2552bd
+4. Please enter all the source node IDs.
+  Type 'all' to use all the nodes as source nodes for the hash slots.
+  Type 'done' once you entered all the source nodes IDs.
+  
+5. Do you want to proceed with the proposed reshard plan (yes/no)? yes
+
+
+
+Status BEFORE resharind
+  127.0.0.1:7001> cluster nodes
+  b7a43828a25beff14ea127a3d254fe6d29f492c2 127.0.0.1:7005@17005 slave 8827d1823f3b92033176fc117712f64a5f7be3c0 0 1673544973000 2 connected
+  f445fbb347c13d027dcce2910524eda27c2552bd 127.0.0.1:7002@17002 master - 0 1673544975015 3 connected 10923-16383
+  750d82bfd4f67a9727f1dffa9d8f1a2b27eaaf09 127.0.0.1:7000@17000 slave c0fb83859bcf8d3572ee9f6ff61df1fd64bb7c13 0 1673544974010 7 connected
+  ca07cfed9aa783af8769959aba6645b5363bc470 127.0.0.1:7003@17003 slave f445fbb347c13d027dcce2910524eda27c2552bd 0 1673544973000 3 connected
+  c0fb83859bcf8d3572ee9f6ff61df1fd64bb7c13 127.0.0.1:7004@17004 master - 0 1673544973509 7 connected 0-5460
+  8827d1823f3b92033176fc117712f64a5f7be3c0 127.0.0.1:7001@17001 myself,master - 0 1673544972000 2 connected 5461-10922
+
+
+Status AFTER resharding:
+  127.0.0.1:7000> cluster nodes
+  f445fbb347c13d027dcce2910524eda27c2552bd 127.0.0.1:7002@17002 master - 0 1673545918045 8 connected 5461-5960 10923-16383
+  c0fb83859bcf8d3572ee9f6ff61df1fd64bb7c13 127.0.0.1:7004@17004 master - 0 1673545918000 7 connected 0-5460
+  8827d1823f3b92033176fc117712f64a5f7be3c0 127.0.0.1:7001@17001 master - 0 1673545919000 2 connected 5961-10922
+  750d82bfd4f67a9727f1dffa9d8f1a2b27eaaf09 127.0.0.1:7000@17000 myself,slave c0fb83859bcf8d3572ee9f6ff61df1fd64bb7c13 0 1673545917000 7 connected
+  ca07cfed9aa783af8769959aba6645b5363bc470 127.0.0.1:7003@17003 slave f445fbb347c13d027dcce2910524eda27c2552bd 0 1673545919551 8 connected
+  b7a43828a25beff14ea127a3d254fe6d29f492c2 127.0.0.1:7005@17005 slave 8827d1823f3b92033176fc117712f64a5f7be3c0 0 1673545919049 2 connected
