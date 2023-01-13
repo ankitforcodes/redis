@@ -25,8 +25,14 @@
     the moment we set 5th key, snapshot process will start
     
     Note: that its not just every 60 sec, its every 60 sec only if atleast 5 writes/updates have happended
-    
-    Check for the timestamp of rdb file created at /Ankit/redis_installation/
+    1361:M 13 Jan 2023 08:53:06.968 * 5 changes in 60 seconds. Saving...
+    1361:M 13 Jan 2023 08:53:06.969 * Background saving started by pid 1419
+    1419:C 13 Jan 2023 08:53:07.041 * DB saved on disk
+    1419:C 13 Jan 2023 08:53:07.041 * Fork CoW for RDB: current 0 MB, peak 0 MB, average 0 MB
+    1361:M 13 Jan 2023 08:53:07.069 * Background saving terminated with success 
+
+
+Check for the timestamp of rdb file created at /Ankit/redis_installation/
     
     
   CASE 2: From redis-cli, run
