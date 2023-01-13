@@ -1,0 +1,51 @@
+The following directory structure has been created:
+  /Ankit/redis_installation/sentinel
+    master
+      redis.conf
+    replica
+      replica.conf
+    sentinel1
+      sentinel1.conf
+    sentinel2
+      sentinel2.conf
+    sentinel3
+      sentinel3.conf
+      
+ 1. Start master redis:
+    cd  /Ankit/redis_installation/sentinel/master
+    redis-server redis.conf
+    
+ 2. Start replica redis:
+    cd  /Ankit/redis_installation/sentinel/replica
+    redis-server redis.conf
+    
+ 3. Start 3rd shell and connect to replica redis:
+    redis-cli -h 127.0.0.1 -p 6380
+    replicaof 127.0.0.1 6379
+    
+ 4. Start sentinel1
+     cd  /Ankit/redis_installation/sentinel/sentinel1
+     redis-sentinel sentinel1.conf
+     
+ 5. Start sentinel2
+     cd  /Ankit/redis_installation/sentinel/sentinel2
+     redis-sentinel sentinel2.conf
+ 
+ 
+ 6. Start sentinel3
+     cd  /Ankit/redis_installation/sentinel/sentinel2
+     redis-sentinel sentinel2.conf
+     
+     
+ CHECK ANY LOGS OF THE SENTINEL TERMINAL and observe:
+ 1. How it monitors the master:
+     +monitor master mymaster 127.0.0.1 6379 quorum 2
+     
+ 2. How it montiros the slave:
+     +slave slave 127.0.0.1:6380 127.0.0.1 6380 @ mymaster 127.0.0.1 6379
+     
+ 3. How it registers all the other 2 sentinels:
+     +sentinel sentinel a5ce0fe777e6aec90f5bddc7210310b088f6fbb6 127.0.0.1 5001 @ mymaster 127.0.0.1 6379
+     Sentinel new configuration saved on disk
+     +sentinel sentinel ba954828a47543883c1302e0618196d9a2a1ac2b 127.0.0.1 5002 @ mymaster 127.0.0.1 6379
+     Sentinel new configuration saved on disk
