@@ -4,11 +4,9 @@ import redis.clients.jedis.JedisPubSub;
 public class PubSubSubscribe {
  
   public static void main(String[] args) {
-         
-    Jedis jedis = null;
  
     try {
-    jedis = new Jedis("68.183.90.231", 6379);
+    jedis = new Jedis("127.0.0.1", 6379);
          
     JedisPubSub jedisPubSub = new JedisPubSub() {
                  
