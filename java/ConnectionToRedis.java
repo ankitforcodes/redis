@@ -4,7 +4,7 @@ public class ConnectionToRedis {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Jedis jedis = new Jedis("68.183.90.231", 6379);
+		Jedis jedis = new Jedis("127.0.0.1", 6379);
 		System.out.println("Connection success!");
 		System.out.println(jedis.ping());
 		
