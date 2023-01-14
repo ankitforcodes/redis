@@ -7,6 +7,12 @@ Once the above is done for all 3 servers
 * make 6 redis.conf files with different ports
 * Ideally these would be running in 6 different 
 
+Setup is ready at : 
+  /Ankit/redis_installation/redis-stable/cluster-test
+  
+  Just delete all the rdb and cluster conf files, keep only redis.conf file
+
+
 In each redis.conf file:
   port 7000
   cluster-enabled yes
