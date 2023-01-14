@@ -30,3 +30,12 @@ STEPS:
      ~* - can run all commands on a key (getting, setting, deleting)
      
 4. This username as password can be given to the respective clients
+
+5. Login via newly created user:
+      auth nonadminuser generalpassword
+      
+      set k1 v1
+      OK
+      
+      flushall
+      (error) NOPERM this user has no permissions to run the 'flushall' command
