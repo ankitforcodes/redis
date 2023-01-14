@@ -1,0 +1,32 @@
+ACLs can be used to restrict a certain user to perform admin related commands.
+
+STEPS:
+1. Set an overall password on your redis:
+    requirepass adminpass
+    
+  This sets a password on overall redis (user mode default)
+  This password shoud not be given to any user but only to admins - who will use this mode to perform Admin operations
+  
+2. Start redis-cli
+    redis-cli -h 127.0.0.1 -p 6379
+    
+    set k1 v1:
+      You will get an error: (error) NOAUTH Authentication required.
+    
+    auth default adminpass
+    OK
+    
+    set k1 v1
+    OK
+    
+3. Create a new user:
+     acl setuser nonadminuser on >generalpassword +@all -@dangerous ~*
+     
+     this creates a new user with:
+     USERNAME: nonadminuser
+     PASSWORD: generalpassword
+     +@all - they can run all commands (permission given to entire command list)
+     -@dangerous - but not the commands tagged as dangerous (flush, config set, acl setuser, etc)
+     ~* - can run all commands on a key (getting, setting, deleting)
+     
+4. This username as password can be given to the respective clients
