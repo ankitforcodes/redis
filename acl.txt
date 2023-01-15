@@ -1,12 +1,14 @@
 ACLs can be used to restrict a certain user to perform admin related commands.
 
 STEPS:
+0. Start redis with the ACL conf:
+    redis-server redis-acl-demo.conf
 1. Set an overall password on your redis:
     requirepass adminpass
     
   This sets a password on overall redis (user mode default)
   This password shoud not be given to any user but only to admins - who will use this mode to perform Admin operations
-  
+
 2. Start redis-cli
     redis-cli -h 127.0.0.1 -p 6379
     
