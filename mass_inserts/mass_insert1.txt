@@ -1,5 +1,5 @@
 1. Have the CSV file ready that you want to insert in DB
-  In our case its at: /Ankit/redis_installation/data 
+  In our case its at: /Ankit/redis_installation/redis_pipelining
   Filename: country_codes.csv
   
   File structure:
