@@ -1,0 +1,2 @@
+* OFF by defaults
+* Needs to be enabled in conf file: redis-cli config set notify-keyspace-events KEA
