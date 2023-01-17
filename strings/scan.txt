@@ -3,7 +3,7 @@
   
   Note: if you receive error while running DEBUG command - edit your redis.conf file
     nano redis.conf
-    ctrl+w to search for "enable-debug"
+    ctrl+w to search for "enable-debug-command"
     change to yes
     save config file
     launch redis again
