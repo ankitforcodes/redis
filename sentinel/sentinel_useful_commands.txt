@@ -1,0 +1,12 @@
+1. Connect to a sentinel:
+  redis-lci -h 127.0.0.1 -p 5000
+
+2. Find detail info about replica:
+  SENTINEL replicas mymaster
+  
+3. Find detail info about sentinels:
+  SENTINEL sentinels mymaster
+  
+4. Obtaining address of the current master:
+  SENTINEL get-master-addr-by-name mymaster
+  
