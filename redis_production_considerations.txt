@@ -1,0 +1,11 @@
+1. Keep loglevel as NOTICE
+2. MAXMEMORY-POLICY - allkeys-lru is the option with least number of surprises
+3. Have a monitoring process in place and use:
+  INFO MEMORY
+  INFO REPLICATION
+  
+4. APPEND ONLY FREQUENCY - everysec (never keep it always)
+5. Create a proper ACL for different kind of users
+6. Always Run redis with a password
+7. If Snapshotting is creating an impact on Master, disable it and enable snapshotting only in replicas
+8. Always keep backup of RDB and AOF files
