@@ -1,0 +1,26 @@
+2 configs to looks at:
+1. diskless data transfer:
+  Everytime a replica connects its asks for RDB file
+  RDB file is sent to disk - then sent to replica.
+  Writing to disk has cost associated to it (has advantage when lot of replica needs to be server and 1 rdb file can be used to send to all replicas)
+  
+  In case your RDB file creation takes a long time, in your conf file:
+    repl-diskless-sync yes        => Means data will be sent directly to replica socket and not master -> disk -> replica
+    repl-diskless-sync-delay 5    => Waits for 5 sec before sending in the hope that any other replica might also becomes queued and can be sent parallely, because once begun new replca will demand socket transer again.
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+2. Buffer size for replicas:
+  client-output-buffer-limit replica 256mb 64mb 60    => means that if replica does not process data fast enough and buffer size exceed 256MB (hard limit) -> master will disconnect
+                                                      => or buffer is 64MB for 60 secs
+              
+  
