@@ -7,17 +7,7 @@
   In case your RDB file creation takes a long time, in your conf file:
     repl-diskless-sync yes        => Means data will be sent directly to replica socket and not master -> disk -> replica
     repl-diskless-sync-delay 5    => Waits for 5 sec before sending in the hope that any other replica might also becomes queued and can be sent parallely, because once begun new replca will demand socket transer again.
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+ 
   
 2. Buffer size for replicas:
   client-output-buffer-limit replica 256mb 64mb 60    => means that if replica does not process data fast enough and buffer size exceed 256MB (hard limit) -> master will disconnect
