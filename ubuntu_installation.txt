@@ -1,0 +1,9 @@
+1. sudo apt-get update
+2. sudo apt install redis
+
+3. Check is redis is running: 
+  sudo systemctl status redis
+
+4. For any config changes:
+  sudo nano /etc/redis/redis.conf
+  sudo systemctl restart redis-server
