@@ -1,3 +1,6 @@
+***** Edit your redis.conf file to enable debug commands ******
+  enable-debug-command yes
+
 0. Populate some keys for better demo:
   debug populate 100
   
