@@ -3,16 +3,12 @@
   Filename: country_codes.csv
   
   File structure:
-  AF,Afghanistan
-  AL,Albania
-  DZ,Algeria
-  AD,Andorra
-  AO,Angola
-  AI,Anguilla
-  AQ,Antarctica
-  AR,Argentina
-  AM,Armenia
-  AW,Aruba
+Afghanistan,AF,AFG,004,ISO 3166-2:AF,Asia,Southern Asia,"",142,034,""
+Åland Islands,AX,ALA,248,ISO 3166-2:AX,Europe,Northern Europe,"",150,154,""
+Albania,AL,ALB,008,ISO 3166-2:AL,Europe,Southern Europe,"",150,039,""
+Algeria,DZ,DZA,012,ISO 3166-2:DZ,Africa,Northern Africa,"",002,015,""
+American Samoa,AS,ASM,016,ISO 3166-2:AS,Oceania,Polynesia,"",009,061,""
+Andorra,AD,AND,020,ISO 3166-2:AD,Europe,Southern Europe,"",150,039,""
   
   
 2. Our task is to insert this in Redis will Key as Country Code and value as Country name
@@ -22,7 +18,7 @@
   etc
   
 4. We need to prepare a file with redis commands 
-  awk -F ',' '{print "SET " $1 " " $2}' country_codes.csv > country_codes_redis.csv
+  awk -F ',' '{print "SET " $2 " " $1}' country_codes.csv > country_codes_redis.csv
   
   
 5. Insert all data sequentially
