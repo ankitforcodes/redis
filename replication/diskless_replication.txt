@@ -1,0 +1,20 @@
+1. In your master's redis.conf file, change the following config to yes
+  repl-diskless-sync 
+  repl-diskless-sync-delay 0
+  
+2. Note the timestamp of RDB file:
+  Feb 15 06:40 dump.rdb
+  
+3. Start master redis:
+  redis-server redis.conf
+  
+4. Delete dump.rdb from SLAVE redis:
+  rm dumbp.rdb -f
+  
+5. Start slave redis
+  redis-server redis.conf
+  
+6. NOte the logs on master redis:
+  Diskless rdb transfer, done reading from pipe
+
+7. NOte how the timestamp of RDB file is not changed. That is new RDB file is not created
