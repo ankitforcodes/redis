@@ -1,0 +1,34 @@
+1. Adding a new node is basically the process of adding an empty node and then moving some data into it
+2. Create a new directory 7006 and create a new conf file 7006.conf with following content:
+port 7006
+cluster-enabled yes
+cluster-config-file nodes.conf
+cluster-node-timeout 5000
+appendonly yes
+protected-mode no
+
+3. Start the redis instance:
+  redis-server 7006.conf
+  
+4. Run the cluster add command:
+  redis-cli --cluster add-node 127.0.0.1:7006 127.0.0.1:7000
+  
+5. Check if the node joined as master:
+  redis-cli -h  127.0.0.1 -p 7000 -c
+  cluster nodes
+  
+  a5388748d92084ce67b147256ec4b9636fe7ae3a 127.0.0.1:7002@17002 master - 0 1676480804000 3 connected 11422-16383
+  1943c2cc9389a951c95ff894c6883be43847d6da 127.0.0.1:7004@17004 slave 4f34660ebdf9142f750e5c531e6dacf0688a26ad 0 1676480804000 7 connected
+  971fb7fe8a647c114f9eb99b7dcd1b809be89929 127.0.0.1:7003@17003 slave a5388748d92084ce67b147256ec4b9636fe7ae3a 0 1676480805271 3 connected
+  cb4dc04eae3dbaf31c041a8f468320190bb4647f 127.0.0.1:7006@17006 master - 0 1676480804266 0 connected
+  4f34660ebdf9142f750e5c531e6dacf0688a26ad 127.0.0.1:7000@17000 myself,master - 0 1676480803000 7 connected 0-5961 10923-11421
+  f6fa9e3c5acb45b32b66cf72a58e5324a5d3e8f9 127.0.0.1:7005@17005 slave 0d25c33ad58586cd821864328b7aa31e57c4449e 0 1676480806000 2 connected
+  0d25c33ad58586cd821864328b7aa31e57c4449e 127.0.0.1:7001@17001 master - 0 1676480806275 2 connected 5962-10922
+  
+  6. Add hashslots to the newly added master:
+    redis-cli --cluster reshard 127.0.0.1:7000
+    
+    In the receiving node prompt, give the node ID of this new master (7006): cb4dc04eae3dbaf31c041a8f468320190bb4647f
+  
+  7. Check if new node got the hashslots:
+    redis-cli -h  127.0.0.1 -p 7000 -c cluster nodes
