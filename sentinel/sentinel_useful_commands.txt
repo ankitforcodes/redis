@@ -10,3 +10,14 @@
 4. Obtaining address of the current master:
   SENTINEL get-master-addr-by-name mymaster
   
+5. Get MASTER details:
+  sentinel master mymaster
+  
+  Some important section of the output:
+    num-other-sentinels is 2, so we know the Sentinel already detected two more Sentinels for this master. If you check the logs you'll see the +sentinel events generated
+    
+    flags is just master. If the master was down we could expect to see s_down or o_down flag as well here
+    
+    num-slaves is correctly set to 1, so Sentinel also detected that there is an attached replica to our master
+  
+  
