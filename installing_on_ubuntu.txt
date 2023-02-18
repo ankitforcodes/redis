@@ -1,0 +1,8 @@
+1. wget https://download.redis.io/redis-stable.tar.gz
+2.  sudo apt-get update
+3. apt install make
+4. sudo apt install gcc
+5. sudo apt-get install build-essential
+6. make distclean
+7. make install
+8. make test
