@@ -1,3 +1,5 @@
+********** TESTED TILL Ubunut20 ******************
+
 1. sudo apt-get update
 2. sudo apt install redis
 
