@@ -3,6 +3,8 @@
 1. sudo apt-get update
 2. sudo apt install redis
 
+2a. sudo apt-install build-essential
+
 3. Check is redis is running: 
   sudo systemctl status redis
 
