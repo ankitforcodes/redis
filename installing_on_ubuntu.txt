@@ -2,6 +2,7 @@
 2.  sudo apt-get update
 3. apt install make
 4. sudo apt install gcc
+4a. sudo apt install tcl
 5. sudo apt-get install build-essential
 6. make distclean
 7. make install
