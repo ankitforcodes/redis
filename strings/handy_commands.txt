@@ -9,7 +9,7 @@
   
   
 * Set key only if doesn't exist already
-  SET NAME ANKIT
+  SETNX NAME ANKIT
   SETNX NAME SAHAY
   
   
