@@ -1,15 +1,19 @@
 ***** Edit your redis.conf file to enable debug commands ******
+  Note: if you receive error while running DEBUG command - edit your redis.conf file
   enable-debug-command yes
+  
+nano redis.conf
+ctrl+w to search for "enable-debug-command"
+change to yes
+save config file
+launch redis again
+  
 
 0. Populate some keys for better demo:
   debug populate 100
   
-  Note: if you receive error while running DEBUG command - edit your redis.conf file
-    nano redis.conf
-    ctrl+w to search for "enable-debug-command"
-    change to yes
-    save config file
-    launch redis again
+
+
 
 1. Default behaviour 
   scan 0
