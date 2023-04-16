@@ -1,9 +1,16 @@
-1. wget https://download.redis.io/redis-stable.tar.gz
-2.  sudo apt-get update
-3. apt install make
-4. sudo apt install gcc
-4a. sudo apt install tcl
-5. sudo apt-get install build-essential
-6. make distclean
-7. make install
-8. make test
+* sudo apt-get update
+* sudo apt install wget
+* sudo apt install make
+* sudo apt install gcc
+* sudo apt install tcl
+* sudo apt-get install build-essential
+
+* cd /
+* mkdir redis_installation
+* cd redis_installation
+* wget https://download.redis.io/redis-stable.tar.gz
+* tar -xvf redis-stable.tar.gz
+* cd redis-stable/
+* make distclean
+* make install
+* make test
