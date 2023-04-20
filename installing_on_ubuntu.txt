@@ -4,6 +4,7 @@
 * sudo apt install gcc
 * sudo apt install tcl
 * sudo apt-get install build-essential
+* sudo apt install python3
 
 * cd /
 * mkdir redis_installation
