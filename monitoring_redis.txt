@@ -30,6 +30,17 @@
   Edit the conf/defaults.ini file: Add the IP address
   Start Grafan: bin/grafana-server --config conf/defaults.ini
   Visit: http://161.XX.XX.XXX:3000/login
+  Username: admin
+  Password: admin
+  
+  Add prometheus datasource
+  
+  Import dashboard: 763
+
+
+
+
+
 
 * In alertmanager directory:
   wget https://github.com/prometheus/alertmanager/releases/download/v0.25.0/alertmanager-0.25.0.linux-amd64.tar.gz
