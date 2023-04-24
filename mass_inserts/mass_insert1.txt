@@ -15,6 +15,8 @@ AQ,Antarctica
 AG,Antigua
   
   
+1.a. seq 2000 | xargs -Inone cat file.csv
+  
 2. Our task is to insert this in Redis will Key as Country Code and value as Country name
 
 3. The command that will do it is:
