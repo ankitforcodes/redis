@@ -8,7 +8,7 @@
    wget https://github.com/oliver006/redis_exporter/releases/download/v1.18.0/redis_exporter-v1.18.0.linux-amd64.tar.gz
    tar -xvf redis_exporter-v1.18.0.linux-amd64.tar.gz
    cd redis_exporter-v1.18.0.linux-amd64
-   ./redis_exporter -redis.addr redis://161.XX.XX.XXX:6379 --web.listen-address=161.XX.XX.XXX:9000
+   ./redis_exporter -redis.addr redis://127.0.0.1:6379 --web.listen-address=161.XX.XX.XXX:9000
    Visit: http://161.XX.XX.XXX:9000/metrics
    
    
