@@ -45,3 +45,7 @@
 * In alertmanager directory:
   wget https://github.com/prometheus/alertmanager/releases/download/v0.25.0/alertmanager-0.25.0.linux-amd64.tar.gz
   tar -xvf alertmanager-0.25.0.linux-amd64.tar.gz
+
+
+Full List of Metrics and it's definitions:
+https://docs.redis.com/latest/rs/clusters/monitoring/prometheus-metrics-definitions/
