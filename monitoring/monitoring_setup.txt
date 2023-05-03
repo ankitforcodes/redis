@@ -1,0 +1,56 @@
+* Create 4 directories:
+  prometheus
+  grafana
+  alertmanager
+  redis-exporter
+  
+* In redis-exporter directory:
+   wget https://github.com/oliver006/redis_exporter/releases/download/v1.18.0/redis_exporter-v1.18.0.linux-amd64.tar.gz
+   tar -xvf redis_exporter-v1.18.0.linux-amd64.tar.gz
+   cd redis_exporter-v1.18.0.linux-amd64
+   ./redis_exporter -redis.addr redis://127.0.0.1:6379 --web.listen-address=161.XX.XX.XXX:9000
+   Visit: http://161.XX.XX.XXX:9000/metrics
+   
+   
+   
+* In prometheus directory, download prometheus:
+  cd prometheus
+  wget https://github.com/prometheus/prometheus/releases/download/v2.43.0/prometheus-2.43.0.linux-amd64.tar.gz
+  tar -xvf prometheus-2.43.0.linux-amd64.tar.gz
+  
+  Edit the prometheus.yml file:
+    In the target add the redis-exporter host and port:
+    161.XX.XX.XXX:9001
+  ./prometheus --web.listen-address=161.XX.XX.XXX:9001
+  Visit: http://161.XX.XX.XXX:9001/graph
+  
+* In Grafana directory:
+  wget https://dl.grafana.com/enterprise/release/grafana-enterprise-9.4.7.linux-amd64.tar.gz
+  tar -xvf grafana-enterprise-9.4.7.linux-amd64.tar.gz
+  Edit the conf/defaults.ini file: Add the IP address
+  Start Grafan: bin/grafana-server --config conf/defaults.ini
+  Visit: http://161.XX.XX.XXX:3000/login
+  Username: admin
+  Password: admin
+  
+  Add prometheus datasource
+  
+  Import dashboard: 763
+  
+  Add one metric: No. of keys
+  * Copy/Duplicate "Clients" Panel
+  * Edit the panel:
+  * Add this rule: sum(redis_db_keys{instance=~"$instance", db="db0"})
+
+
+
+
+
+* In alertmanager directory:
+  wget https://github.com/prometheus/alertmanager/releases/download/v0.25.0/alertmanager-0.25.0.linux-amd64.tar.gz
+  tar -xvf alertmanager-0.25.0.linux-amd64.tar.gz
+  Start alertmanager: ./alertmanager  --web.listen-address=157.XXX.XX.XXX:9093
+
+
+Full List of Metrics and it's definitions:
+https://docs.redis.com/latest/rs/clusters/monitoring/prometheus-metrics-definitions/
