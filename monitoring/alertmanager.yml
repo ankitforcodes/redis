@@ -1,0 +1,15 @@
+route:
+  group_by: ['alertname']
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 1h
+  receiver: 'email'
+receivers:
+  - name: 'email'
+    email_configs:
+      - to: 'data.xxxxxxxxx.learn@gmail.com'
+        from: 'data.xxxxxxxxx.learn@gmail.com'
+        smarthost: smtp.gmail.com:587
+        auth_username: data.xxxxxxxxx.learn@gmail.com
+        auth_identity: alertmanager
+        auth_password: xxxxxxxxx
