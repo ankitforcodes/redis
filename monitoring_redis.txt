@@ -36,7 +36,11 @@
   Add prometheus datasource
   
   Import dashboard: 763
-
+  
+  Add one metric: No. of keys
+  * Copy/Duplicate "Clients" Panel
+  * Edit the panel:
+  * Add this rule: sum(redis_db_keys{instance=~"$instance", db="db0"})
 
 
 
