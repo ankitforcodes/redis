@@ -10,3 +10,11 @@ groups:
     annotations:
       summary: Redis down (instance {{ $labels.instance }})
       description: "Redis instance is down\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+  - alert: RedisTooManyKeys
+    expr: redis_db_keys > 5
+    for: 0m
+    labels:
+      severity: critical
+    annotations:
+      summary: Redis too many keys (instance {{ $labels.instance }})
+      description: "Redis instance has too many keyss\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
