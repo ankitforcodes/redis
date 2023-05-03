@@ -49,6 +49,7 @@
 * In alertmanager directory:
   wget https://github.com/prometheus/alertmanager/releases/download/v0.25.0/alertmanager-0.25.0.linux-amd64.tar.gz
   tar -xvf alertmanager-0.25.0.linux-amd64.tar.gz
+  Start alertmanager: ./alertmanager  --web.listen-address=157.XXX.XX.XXX:9093
 
 
 Full List of Metrics and it's definitions:
