@@ -21,6 +21,13 @@
   Edit the prometheus.yml file:
     In the target add the redis-exporter host and port:
     161.XX.XX.XXX:9001
+    
+    
+  Create a rules file:
+    nano rules.yml
+    Get the content from rules.yml from this repo
+    
+  Start prometheus
   ./prometheus --web.listen-address=161.XX.XX.XXX:9001
   Visit: http://161.XX.XX.XXX:9001/graph
   
