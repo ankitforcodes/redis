@@ -9,6 +9,9 @@
    tar -xvf redis_exporter-v1.18.0.linux-amd64.tar.gz
    cd redis_exporter-v1.18.0.linux-amd64
    ./redis_exporter -redis.addr redis://127.0.0.1:6379 --web.listen-address=161.XX.XX.XXX:9000
+   
+   If your redis is password-protected:
+    ./redis_exporter -redis.addr redis://127.0.0.1:6379 --web.listen-address=161.XX.XX.XXX:9000 --redis.password=xyz
    Visit: http://161.XX.XX.XXX:9000/metrics
    
    
