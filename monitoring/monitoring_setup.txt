@@ -59,7 +59,7 @@
 * In alertmanager directory:
   wget https://github.com/prometheus/alertmanager/releases/download/v0.25.0/alertmanager-0.25.0.linux-amd64.tar.gz
   tar -xvf alertmanager-0.25.0.linux-amd64.tar.gz
-  Edit the alertmanager.yml according to the file in this repo
+  Edit the alertmanager.yml according to the file in this repo: wget https://raw.githubusercontent.com/ankitforcodes/redis/main/monitoring/alertmanager.yml
   Start alertmanager: ./alertmanager  --web.listen-address=157.XXX.XX.XXX:9093
 
 
