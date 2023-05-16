@@ -28,7 +28,7 @@
     
   Create a rules file:
     nano rules.yml
-    Get the content from rules.yml from this repo
+    Get the content from rules.yml from this repo: wget https://raw.githubusercontent.com/ankitforcodes/redis/main/monitoring/rules.yml
     
   Start prometheus
   ./prometheus --web.listen-address=161.XX.XX.XXX:9001
